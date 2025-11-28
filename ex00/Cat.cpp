@@ -21,7 +21,7 @@ Cat::Cat(const Cat& other): Animal()
 	std::cout << "\033[1;32m"
 		<< "Cat is copy-constructed."
 		<< "\033[0m" << std::endl;
-	_type = other._type;
+	Animal::_type = other._type;
 }
 
 const Cat& Cat::operator=(const Cat& other)
@@ -30,7 +30,7 @@ const Cat& Cat::operator=(const Cat& other)
 		<< "Cat is assigned."
 		<< "\033[0m" << std::endl;
 	if (this != &other)
-		_type = other._type;
+		Animal::_type = other._type;
 	return (*this);
 }
 

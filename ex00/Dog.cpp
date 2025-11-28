@@ -6,7 +6,7 @@ Dog::Dog(void): Animal()
 	std::cout << "\033[1;32m"
 		<< "Dog is constructed."
 		<< "\033[0m" << std::endl;
-	_type = "Dog";
+	Animal::_type = "Dog";
 }
 
 Dog::~Dog(void)
@@ -21,7 +21,7 @@ Dog::Dog(const Dog& other): Animal()
 	std::cout << "\033[1;32m"
 		<< "Dog is copy-constructed."
 		<< "\033[0m" << std::endl;
-	_type = other._type;
+	Animal::_type = other._type;
 }
 
 const Dog& Dog::operator=(const Dog& other)
@@ -30,7 +30,7 @@ const Dog& Dog::operator=(const Dog& other)
 		<< "Dog is assigned."
 		<< "\033[0m" << std::endl;
 	if (this != &other)
-		_type = other._type;
+		Animal::_type = other._type;
 	return (*this);
 }
 
