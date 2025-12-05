@@ -6,7 +6,7 @@
 #    By: jwuille <jwuille@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/17 14:16:44 by jwuille           #+#    #+#              #
-#    Updated: 2025/11/20 18:02:28 by jwuille          ###   ########.fr        #
+#    Updated: 2025/12/05 16:58:40 by jwuille          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,8 @@ SRC =	\
 		Animal.cpp \
 		Cat.cpp \
 		Dog.cpp \
+		WrongAnimal.cpp \
+		WrongCat.cpp \
 		main.cpp
 
 CC = clang++ -MD -std=c++98
