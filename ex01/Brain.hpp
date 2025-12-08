@@ -10,7 +10,7 @@ class Brain
 		std::string			_ideas[_IDEAS_NUMBER];
 	public:
 		Brain(void);
-		virtual	~Brain(void);
+		~Brain(void);
 		Brain(const Brain&);
 		Brain& operator=(const Brain&);
 };

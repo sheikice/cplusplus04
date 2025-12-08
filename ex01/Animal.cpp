@@ -22,16 +22,6 @@ Animal::Animal(const Animal& other): _type(other._type)
 		<< "\033[0m" << std::endl;
 }
 
-const Animal& Animal::operator=(Animal& other)
-{
-	std::cout << "\033[1;29m"
-		<< "Animal is assigned."
-		<< "\033[0m" << std::endl;
-	if (this != &other)
-		_type = other._type;
-	return (*this);
-}
-
 const Animal& Animal::operator=(const Animal& other)
 {
 	std::cout << "\033[1;29m"

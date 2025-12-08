@@ -3,11 +3,11 @@
 
 Dog::Dog(void): Animal()
 {
+	_type = "Dog";
+	_brain = new Brain();
 	std::cout << "\033[1;32m"
 		<< "Dog is constructed."
 		<< "\033[0m" << std::endl;
-	Animal::_type = "Dog";
-	Dog::_brain = new Brain();
 }
 
 Dog::~Dog(void)
@@ -24,19 +24,20 @@ Dog::Dog(const Dog& other): Animal()
 		<< "Dog is copy-constructed."
 		<< "\033[0m" << std::endl;
 	_type = other._type;
-	Animal::_type = other._type;
+	_brain = new Brain(*other._brain);
 }
 
 const Dog& Dog::operator=(const Dog& other)
 {
+	if (this != &other)
+	{
+		delete _brain;
+		_type = other._type;
+		_brain = new Brain(*other._brain);
+	}
 	std::cout << "\033[1;29m"
 		<< "Dog is assigned."
 		<< "\033[0m" << std::endl;
-	if (this != &other)
-	{
-		_type = other._type;
-		Animal::_type = other._type;
-	}
 	return (*this);
 }
 
