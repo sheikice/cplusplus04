@@ -10,7 +10,7 @@ class Cat: public Animal
 		~Cat(void);
 		Cat(const Cat&);
 		const Cat& operator=(const Cat&);
-		virtual void	makeSound(void) const;
+		void	makeSound(void) const;
 };
 
 #endif
