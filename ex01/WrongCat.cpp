@@ -1,9 +1,8 @@
 #include <iostream>
 #include "WrongCat.hpp"
 
-WrongCat::WrongCat(void): WrongAnimal()
+WrongCat::WrongCat(void): WrongAnimal("WrongCat")
 {
-	_type = "WrongCat";
 	std::cout << "\033[1;32m"
 		<< "WrongCat is constructed."
 		<< "\033[0m" << std::endl;

@@ -7,8 +7,10 @@ class Animal
 {
 	protected:
 		std::string	_type;
+
 	public:
 		Animal(void);
+		Animal(const std::string&);
 		virtual ~Animal(void);
 		Animal(const Animal&);
 		const Animal& operator=(const Animal&);

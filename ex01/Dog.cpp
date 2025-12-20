@@ -1,9 +1,8 @@
 #include <iostream>
 #include "Dog.hpp"
 
-Dog::Dog(void): Animal()
+Dog::Dog(void): Animal("Dog")
 {
-	_type = "Dog";
 	_brain = new Brain();
 	std::cout << "\033[1;32m"
 		<< "Dog is constructed."
@@ -18,13 +17,12 @@ Dog::~Dog(void)
 		<< "\033[0m" << std::endl;
 }
 
-Dog::Dog(const Dog& other): Animal()
+Dog::Dog(const Dog& other): Animal(other)
 {
+	_brain = new Brain(*other._brain);
 	std::cout << "\033[1;32m"
 		<< "Dog is copy-constructed."
 		<< "\033[0m" << std::endl;
-	_type = other._type;
-	_brain = new Brain(*other._brain);
 }
 
 const Dog& Dog::operator=(const Dog& other)
@@ -43,5 +41,5 @@ const Dog& Dog::operator=(const Dog& other)
 
 void	Dog::makeSound(void) const
 {
-	std::cout << "Woof" << std::endl;
+	std::cout << "Woof\n";
 }

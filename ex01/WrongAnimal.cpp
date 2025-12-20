@@ -8,6 +8,13 @@ WrongAnimal::WrongAnimal(void): _type("Meta")
 		<< "\033[0m" << std::endl;
 }
 
+WrongAnimal::WrongAnimal(const std::string& _type): _type(_type)
+{
+	std::cout << "\033[1;32m"
+		<< "WrongAnimal is constructed."
+		<< "\033[0m" << std::endl;
+}
+
 WrongAnimal::~WrongAnimal(void)
 {
 	std::cout << "\033[1;31m"
