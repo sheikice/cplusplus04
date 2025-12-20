@@ -8,34 +8,56 @@
 
 int	main(void)
 {
+	std::cout << "\n";
 	{
-		ICharacter* bobby = new Character("bobby");
-		ICharacter* john = new Character("john");
+		ICharacter* sephiroth = new Character("Sephiroth");
+		ICharacter* tifa = new Character("Tifa");
 
-		AMateria* m1 = new Ice;
-		AMateria* m2 = new Cure;
+		IMateriaSource* src = new MateriaSource();
+		src->learnMateria(new Ice());
+		src->learnMateria(new Cure());
+		src->learnMateria(new Cure());
+		src->learnMateria(new Cure());
+		src->learnMateria(new Cure());
+
+		AMateria* m1 = src->createMateria("ice");
+		AMateria* m2 = src->createMateria("cure");
+
+		AMateria* m3 = src->createMateria("ice");
+		AMateria* m4 = src->createMateria("ice");
+		AMateria* m5 = src->createMateria("ice");
+		AMateria* m6 = src->createMateria("ice");
+		AMateria* m7 = src->createMateria("ice");
 
 		std::cout << "\n";
-		// ================== TESTS =========================
+		tifa->equip(m1);
+		tifa->equip(m2);
+		tifa->equip(NULL);
+		sephiroth->equip(m3);
+		sephiroth->equip(m4);
+		sephiroth->equip(m5);
+		sephiroth->equip(m6);
+		sephiroth->equip(m7);
 
-		bobby->equip(m1);
-		bobby->equip(m2);
-		bobby->use(0, *john);
-		bobby->use(1, *john);
-		bobby->use(2, *john);
+		ICharacter* cloud = new Character(*(static_cast<Character*>(sephiroth)));
+		cloud->setName("Cloud");
 
-		ICharacter* test = new Character(*(static_cast<Character*>(bobby)));
+		cloud->use(-1, *sephiroth);
+		cloud->use(0, *sephiroth);
+		cloud->use(4, *sephiroth);
+		sephiroth->use(0, *cloud);
+		tifa->use(1, *cloud);
 
-		test->use(0, *bobby);
-		test->use(1, *bobby);
-		test->use(2, *bobby);
-
-		const AMateria *tmp = test->getMateria(0);
-		test->unequip(0);
-		delete bobby;
-		delete test;
-		delete john;
+		const AMateria *tmp = cloud->getMateria(0);
+		cloud->unequip(-1);
+		cloud->unequip(0);
+		cloud->unequip(4);
+		delete sephiroth;
+		delete cloud;
+		delete tifa;
 		delete tmp;
+		delete src;
+		delete m7;
 
 		std::cout << "\n";
 	}
@@ -56,5 +78,6 @@ int	main(void)
 		delete me;
 		delete src;
 	}
+	std::cout << "\n";
 	return (0);
 }

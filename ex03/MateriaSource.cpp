@@ -58,12 +58,15 @@ void MateriaSource::learnMateria(AMateria* m)
 {
 	int i = 0;
 
-	while (_slot[i] && i < _NBR_SLOTS)
+	if (m == NULL)
+		return ;
+	while (i < _NBR_SLOTS && _slot[i])
 		i++;
-	if (_slot[i] == NULL)
-		_slot[i] = m;
+	if (i < _NBR_SLOTS && _slot[i] == NULL)
+		_slot[i] = m->clone();
 	else
 		std::cout <<  "Source's slots are already filled.\n";
+	delete m;
 }
 
 AMateria* MateriaSource::createMateria(const std::string& type)

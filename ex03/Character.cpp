@@ -74,27 +74,26 @@ void Character::equip(AMateria* m)
 {
 	int i = 0;
 
-	while (_slot[i] && i < _NBR_SLOTS)
+	while (i < _NBR_SLOTS && _slot[i])
 		i++;
-	if (_slot[i] == NULL)
+	if (i < _NBR_SLOTS && _slot[i] == NULL)
 		_slot[i] = m;
 	else
 		std::cout << getName() << "'s inventory is already full.\n";
-
 }
 
 void Character::unequip(int idx)
 {
-	if (idx > _NBR_SLOTS)
-		std::cout <<  "index > inventory size.\n";
+	if (idx >= _NBR_SLOTS || idx < 0)
+		std::cout <<  "index: " << idx << " is invalid.\n";
 	else
 		_slot[idx] = NULL;
 }
 
 void Character::use(int idx, ICharacter& character)
 {
-	if (idx > _NBR_SLOTS)
-		std::cout << "idx > inventory size.\n";
+	if (idx >= _NBR_SLOTS || idx < 0)
+		std::cout << "index: " << idx << " is invalid.\n";
 	else if (_slot[idx] == NULL)
 		std::cout << "No materia equipped on slot " << idx << ".\n";
 	else

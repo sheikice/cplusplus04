@@ -17,7 +17,7 @@ const Cure& Cure::operator=(const Cure& other)
 
 void Cure::use(ICharacter& character) const
 {
-	std::cout <<"* heals " << character.getName() << "’s wounds *\n";
+	std::cout <<"* heals " << character.getName() << "'s wounds *\n";
 }
 
 AMateria* Cure::clone() const
