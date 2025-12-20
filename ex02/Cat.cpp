@@ -1,9 +1,8 @@
 #include <iostream>
 #include "Cat.hpp"
 
-Cat::Cat(void): Animal()
+Cat::Cat(void): Animal("Cat")
 {
-	_type = "Cat";
 	_brain = new Brain();
 	std::cout << "\033[1;32m"
 		<< "Cat is constructed."
@@ -18,13 +17,12 @@ Cat::~Cat(void)
 		<< "\033[0m" << std::endl;
 }
 
-Cat::Cat(const Cat& other): Animal()
+Cat::Cat(const Cat& other): Animal(other)
 {
+	_brain = new Brain(*other._brain);
 	std::cout << "\033[1;32m"
 		<< "Cat is copy-constructed."
 		<< "\033[0m" << std::endl;
-	_type = other._type;
-	_brain = new Brain(*other._brain);
 }
 
 const Cat& Cat::operator=(const Cat& other)
@@ -32,7 +30,7 @@ const Cat& Cat::operator=(const Cat& other)
 	if (this != &other)
 	{
 		delete _brain;
-		_type = other._type;
+		_type = other.getType();
 		_brain = new Brain(*other._brain);
 	}
 	std::cout << "\033[1;29m"
