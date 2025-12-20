@@ -1,9 +1,8 @@
 #include <iostream>
 #include "Cat.hpp"
 
-Cat::Cat(void): Animal()
+Cat::Cat(void): Animal("Cat")
 {
-	_type = "Cat";
 	std::cout << "\033[1;32m"
 		<< "Cat is constructed."
 		<< "\033[0m" << std::endl;
@@ -16,25 +15,24 @@ Cat::~Cat(void)
 		<< "\033[0m" << std::endl;
 }
 
-Cat::Cat(const Cat& other): Animal()
+Cat::Cat(const Cat& other): Animal(other)
 {
 	std::cout << "\033[1;32m"
 		<< "Cat is copy-constructed."
 		<< "\033[0m" << std::endl;
-	Animal::_type = other._type;
 }
 
 const Cat& Cat::operator=(const Cat& other)
 {
+	if (this != &other)
+		Animal::_type = other.getType();
 	std::cout << "\033[1;29m"
 		<< "Cat is assigned."
 		<< "\033[0m" << std::endl;
-	if (this != &other)
-		Animal::_type = other._type;
 	return (*this);
 }
 
 void	Cat::makeSound(void) const
 {
-	std::cout << "Miou" << std::endl;
+	std::cout << "Miou\n";
 }
