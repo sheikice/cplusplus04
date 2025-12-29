@@ -29,7 +29,7 @@ Character::Character(const Character& other): ICharacter(), _name(other.getName(
 		if (other._slot[i])
 			_slot[i] = other._slot[i]->clone();
 		else
-		 _slot[i] = NULL;
+			_slot[i] = NULL;
 }
 
 const Character& Character::operator=(const Character& other)
@@ -47,7 +47,6 @@ const Character& Character::operator=(const Character& other)
 			if (other._slot[i])
 				_slot[i] = other._slot[i]->clone();
 		}
-
 	}
 	return (*this);
 }

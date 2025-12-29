@@ -15,7 +15,7 @@ const Cure& Cure::operator=(const Cure& other)
 	return (*this);
 }
 
-void Cure::use(ICharacter& character) const
+void Cure::use(ICharacter& character)
 {
 	std::cout <<"* heals " << character.getName() << "'s wounds *\n";
 }

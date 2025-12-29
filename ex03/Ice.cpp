@@ -15,7 +15,7 @@ const Ice& Ice::operator=(const Ice& other)
 	return (*this);
 }
 
-void Ice::use(ICharacter& character) const
+void Ice::use(ICharacter& character)
 {
 	std::cout << "* shoots an ice bolt at "
 		<< character.getName() << " *\n";

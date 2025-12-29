@@ -20,7 +20,7 @@ class AMateria
 		const std::string& getType() const;
 		void setType(const std::string&);
 		virtual AMateria* clone() const = 0;
-		virtual void use(ICharacter&) const;
+		virtual void use(ICharacter&);
 };
 
 #endif

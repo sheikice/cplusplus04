@@ -27,7 +27,7 @@ void AMateria::setType(const std::string& type)
 	_type = type;
 }
 
-void AMateria::use(ICharacter& character) const
+void AMateria::use(ICharacter& character)
 {
 	std::cout << "* tries to use its abstract materia on "
 		<<  character.getName()
