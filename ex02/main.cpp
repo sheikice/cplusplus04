@@ -11,7 +11,7 @@ int	main(void)
 
 	Cat one;
 	Cat two(one);
-	std::cout << "kitty is a " << two.getType() << ".\n";
+	std::cout << "kitty is a " << two.getType() << " and it does: ";
 	two.makeSound();
 	for (int i = 0; i < ANIMAL_NBR; i++)
 	{

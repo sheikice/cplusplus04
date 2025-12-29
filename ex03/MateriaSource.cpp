@@ -24,7 +24,7 @@ MateriaSource::MateriaSource(const MateriaSource& other): IMateriaSource()
 		if (other._slot[i])
 			_slot[i] = other._slot[i]->clone();
 		else
-		 _slot[i] = NULL;
+			_slot[i] = NULL;
 }
 
 const MateriaSource& MateriaSource::operator=(const MateriaSource& other)

@@ -5,7 +5,6 @@
 
 class ICharacter;
 
-//TODO: DONE
 class AMateria
 {
 	protected:
