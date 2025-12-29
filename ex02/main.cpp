@@ -8,7 +8,8 @@ int	main(void)
 	const int ANIMAL_NBR = 6;
 	const Animal* horde[ANIMAL_NBR];
 	Animal* animal2;
-
+	
+	// Animal Doggy; // Cannot compile using directly an abstract class
 	Cat one;
 	Cat two(one);
 	std::cout << "kitty is a " << two.getType() << " and it does: ";
